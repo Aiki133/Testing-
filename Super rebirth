@@ -1,0 +1,19 @@
+local player = game.Players.LocalPlayer
+local superRebirthButton = script.Parent -- Assuming you have a button in the game for Super Rebirth
+
+-- Function to handle Super Rebirth
+local function performSuperRebirth()
+    local regularRebirths = player.leaderstats.Rebirths.Value
+    if regularRebirths >= 35 then
+        player.leaderstats.Power.Value = 0
+        player.leaderstats.Wins.Value = 0
+        player.leaderstats.Rebirths.Value = 0
+        player.leaderstats.Strength.Value = player.leaderstats.Strength.Value + 1000 -- Boost strength by 1000 (customize as needed)
+        print("Super Rebirth successful! Your strength has been boosted.")
+    else
+        print("Not enough regular rebirths for Super Rebirth.")
+    end
+end
+
+-- Connect the button click event to the Super Rebirth function
+superRebirthButton.MouseButton1Click:Connect(performSuperRebirth)
